@@ -5,21 +5,27 @@ import React from "react"
 
 interface CustomButton extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     children: React.ReactNode;
+    bgColor?: string;
+    textColor?: string;
+
+    //Color when the mouse is hovering over the button
+    hoverBgColor?: string;
 }
 
-const Button = ({children, className, ...props}: CustomButton) => {
+const Button = ({children, className, bgColor = 'bg-blue-400', textColor = 'text-white', 
+    hoverBgColor = 'hover:bg-blue-500', ...props}: CustomButton) => {
+
     return (
          <button
-      {...props}
-      className={`
-        w-full py-3 px-4 bg-blue-400 text-white font-bold rounded-full 
-        hover:bg-blue-500 focus:outline-none focus:ring-2 
-        focus:ring-offset-2 focus:ring-blue-500 transition-colors
-        ${className} 
-      `}
-    >
-      {children}
-    </button>
+            {...props}
+            className={`
+                w-full py-3 px-4 font-bold rounded-full focus:outline-none focus:ring-2 
+                focus:ring-offset-2 focus:ring-blue-500 transition-colors
+                ${bgColor} ${textColor} ${hoverBgColor} ${className} 
+      `     }
+        >
+            {children}
+        </button>
     );
 };
 
