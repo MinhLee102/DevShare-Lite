@@ -47,10 +47,8 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'corsheaders',
-    'users',
     'posts',
     'comments',
-    'tags',
 ]
 
 SITE_ID = 1
@@ -167,10 +165,8 @@ SIMPLE_JWT = {
 REST_USE_JWT = True
 
 ## Test connection before config SMTP server
-ACCOUNT_AUTHENTICATION_METHOD = 'username'
-ACCOUNT_EMAIL_REQUIRED = False
+ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_USERNAME_REQUIRED = True
+ACCOUNT_SIGNUP_FIELDS = ['email', 'username', 'password1', 'password2']
 ACCOUNT_EMAIL_VERIFICATION = 'none'
-
-
-
-
