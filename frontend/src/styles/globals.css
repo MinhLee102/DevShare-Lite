@@ -1,9 +1,9 @@
 @import "tailwindcss";
-@import "@fontsource/inter/variable.css";
+@import "@fontsource/inter";
 
 :root {
-  --background: #d9d9d9;
-  --foreground: #171717;
+  --background: #000000;
+  --foreground: #d9d9d9;
 }
 
 @theme{
@@ -14,8 +14,8 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #d9d9d9;
+    --foreground: #000000;
   }
 }
 

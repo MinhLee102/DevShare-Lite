@@ -50,7 +50,7 @@ export default function LoginPage() {
   return (
     <main className="flex-grow flex flex-col items-center justify-center p-4">
       <div className="text-center mb-6">
-        <h1 className="text-3xl font-bold text-black">
+        <h1 className="text-3xl font-bold text-[#AD8989]">
           Welcome to DevShare Lite!
         </h1>
         <p className="mt-2 text-sm text-[#AD8989]">

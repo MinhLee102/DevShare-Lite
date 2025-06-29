@@ -44,7 +44,7 @@ const AuthForm = ({ title, fields, buttonText, onSubmit, footerContent }: AuthFo
   };
 
   return (
-    <div className="w-full max-w-sm bg-[#d9d9d9] p-8 rounded-lg shadow-md">
+    <div className="w-full max-w-sm bg-white p-8 rounded-lg shadow-md">
       <div className="text-center">
         <h2 className="text-2xl font-bold text-[#848484]">{title}</h2>
       </div>
