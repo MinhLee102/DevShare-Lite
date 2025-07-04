@@ -5,6 +5,7 @@ interface ImageInfo {
     width: number;
     height: number;
     alt?: string;
+    className?: string;
 }
 
 const Picture = ({url, width, height, alt = 'Logo'}: ImageInfo) => {
