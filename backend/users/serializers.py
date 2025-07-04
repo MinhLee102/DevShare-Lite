@@ -11,4 +11,4 @@ class MyRegisterSerializer(RegisterSerializer):
 
     def custom_signup(self, request, user):
         user.save()
-        return user
+        return user 
