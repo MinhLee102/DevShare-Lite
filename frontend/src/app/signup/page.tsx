@@ -65,9 +65,9 @@ export default function RegisterPage() {
             </div>
 
             <AuthForm
-                title = "Register"
+                title = "Sign Up"
                 fields = {registerField}
-                buttonText= "Register"
+                buttonText= "Sign Up"
                 onSubmit= {handleRegister}
                 footerContent= {RegisterFooter} />
         </main>
