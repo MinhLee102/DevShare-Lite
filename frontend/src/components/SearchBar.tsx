@@ -1,8 +1,6 @@
 'use client';
 
 import { useState } from "react";
-import InputField from "./InputField";
-import Button from "./Button";
 import Picture from "./Picture";
 
 const SearchBar = () => {
@@ -10,18 +8,14 @@ const SearchBar = () => {
 
     return (
         <form className="w-full bg-white p-2 border-2 border-[#00C7B6] rounded-full shadow-sm flex items-center">
-            <InputField 
-                id= "search" name= "search" type= "text" required= {false} value={query} 
+            <input
+                id= "search" name= "search" type= "text" value={query} 
                 onChange={(e) => setQuery(e.target.value)} placeholder= "Search DevShare"
-                className="w-full bg-transparent px-4 py-2 text-gray-900 focus:outline-none"/>
-            <Button 
-                type="submit"
-                className="w-auto p-2 flex items-center justify-center"
-                bgColor="bg-transparent"
-                textColor="text-gray-500"
-                hoverBgColor="hover:text-cyan-500" >
-                    <Picture url="/search.png" width={24} height={24} alt="search" />
-            </Button>
+                className="flex-grow bg-transparent px-4 py-1 text-gray-900 focus:outline-none focus:ring-0 border-none"/>
+            <button
+                type="submit" className="w-auto p-2 flex-shrink-0 text-gray-500 hover:text-cyan-500 transition-colors rounded-full">
+                    <Picture url="/search.png" width={20} height={20} alt="search" />
+            </button>
         </form>
     );
 };
