@@ -10,7 +10,7 @@ interface NewsFeedProps {
     nextPage: number | null;
 }
 
-export default function PostFeed({ initialPosts, nextPage }: NewsFeedProps) {
+export default function NewsFeed({ initialPosts, nextPage }: NewsFeedProps) {
     const [posts, setPosts] = useState<PostType[]>(initialPosts);
     const [page, setPage] = useState<number | null>(nextPage);
     const [loading, setLoading] = useState(false);
