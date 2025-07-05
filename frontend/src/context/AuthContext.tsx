@@ -58,12 +58,12 @@ export const AuthProvider = ({children}: {children: ReactNode}) => {
         }, []);
 
     const login = (data: unknown) => {
-        const responceData = data as loginResponce
-        localStorage.setItem('access_token', responceData.access);
-        localStorage.setItem('refresh_token', responceData.refresh);
-        localStorage.setItem('user', JSON.stringify(responceData.user));
+        const responseData = data as loginResponce
+        localStorage.setItem('access_token', responseData.access);
+        localStorage.setItem('refresh_token', responseData.refresh);
+        localStorage.setItem('user', JSON.stringify(responseData.user));
         
-        setUser(responceData.user);
+        setUser(responseData.user);
 
         window.location.href = '/';
     };
