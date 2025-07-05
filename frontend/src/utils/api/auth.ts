@@ -13,7 +13,7 @@ export const loginUser = (data: Record<string, string>) => {
 };
 
 export const registerUser = (data: Record<string, string>) => {
-    return apiClient.post('/auth/signup/', data)
+    return apiClient.post('/auth/registration/', data)
 };
 
 export const logoutUser = (refreshToken: string) => {

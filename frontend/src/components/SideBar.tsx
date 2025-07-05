@@ -3,7 +3,7 @@ import Picture from "./Picture";
 
 const SideBar = () => {
     return (
-        <aside className="w-64 h-screen fixed top-22 left-0 bg-white rounded-2xl shadow-lg px-4 py-6 z-50">
+        <aside className="w-64 h-205 fixed top-22 left-0 bg-white rounded-2xl shadow-lg px-4 py-6 z-50">
                 <nav>
                     <ul>
                         <li>
