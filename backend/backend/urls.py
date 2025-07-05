@@ -21,6 +21,7 @@ from django.conf.urls.static import static
 from users.views import get_user_profile_data
 
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
 
@@ -28,7 +29,9 @@ urlpatterns = [
     
     path('api/auth/registration/', include('dj_rest_auth.registration.urls')),
 
-    path('api/user_data/<str:pk>/', get_user_profile_data)
+    path('api/user_data/<str:pk>/', get_user_profile_data),
+
+    path('api/', include('posts.urls')),
 
 ] + static(settings.MEDIA_URL, document_root= settings.MEDIA_ROOT)
 
