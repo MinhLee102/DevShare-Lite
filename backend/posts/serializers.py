@@ -38,3 +38,4 @@ class PostSerializer(serializers.ModelSerializer):
                 Tag.objects.get_or_create(name=name)
         
         return super().to_internal_value(data)
+    
