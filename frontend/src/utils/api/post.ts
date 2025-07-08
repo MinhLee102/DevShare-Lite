@@ -12,3 +12,12 @@ export const getPosts = async (page = 1, limit = 10) => {
     };
 };
 
+export const getPostById = async (id: string | number) => {
+    try {
+        const response = await apiClient.get(`/posts/${id}/`);
+        return response.data;
+    } catch (error) {
+        console.error("Failed to get post details", error);
+        return null;
+    }
+}
