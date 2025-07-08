@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useRef, useCallback } from 'react';
+import { useState, useRef, useEffect, useCallback } from 'react';
 import { getPosts } from '@/utils/api/post';
 import Post, { PostType } from './Post';
 import { Loader } from 'lucide-react';
@@ -53,6 +53,10 @@ export default function NewsFeed({ initialPosts, nextPage }: NewsFeedProps) {
     },
     [loading, page, loadMorePosts]
   );
+
+   useEffect(() => {
+        console.log('[CLIENT - NewsFeed] Received initial posts:', initialPosts);
+    }, [initialPosts]);
 
   return (
     <div className="space-y-6">

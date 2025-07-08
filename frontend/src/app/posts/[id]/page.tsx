@@ -39,7 +39,7 @@ export default async function PostDetails({params}: PostDetailsProps) {
           <div className="flex items-center space-x-4">
             <div className="relative h-12 w-12">
                 <Picture
-                    url={post.author.avatar || '/user.png'} 
+                    url={post.author.profile_image || '/user.png'} 
                     alt={post.author.username} 
                     width={48}
                     height={48} 
