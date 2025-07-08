@@ -2,10 +2,12 @@ from rest_framework import serializers
 from dj_rest_auth.registration.serializers import RegisterSerializer
 from .models import User
 
-class UserProfileSerializer(serializers.ModelSerializer):
+class CustomUserDetailsSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['username', 'bio', 'profile_image']
+        fields = ['id', 'username', 'email', 'bio', 'profile_image']
+        read_only_fields = ('email',)
+
 
 class MyRegisterSerializer(RegisterSerializer):
 

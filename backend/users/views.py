@@ -2,7 +2,7 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
 from .models import User
-from .serializers import UserProfileSerializer
+from .serializers import CustomUserDetailsSerializer
 
 @api_view(['GET'])
 def get_user_profile_data(request, pk):
@@ -12,7 +12,7 @@ def get_user_profile_data(request, pk):
         except User.DoesNotExist:
             return Response({'error': 'User not exists'})
     
-        serializer = UserProfileSerializer(user, many = False)
+        serializer = CustomUserDetailsSerializer(user, many = False)
         return Response(serializer.data)
     except:
         return Response({'error': 'Error getting user data'})

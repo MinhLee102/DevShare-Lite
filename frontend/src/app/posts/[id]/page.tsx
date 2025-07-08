@@ -4,6 +4,8 @@ import SearchBar from "@/components/SearchBar";
 import Picture from "@/components/Picture"; 
 import ReactMarkdown from 'react-markdown'; 
 import { notFound } from 'next/navigation'; 
+import PostActions from "@/components/PostAction";
+import { PostType } from "@/components/Post";
 
 interface PostDetailsProps {
     params: {
@@ -13,7 +15,7 @@ interface PostDetailsProps {
 
 export default async function PostDetails({params}: PostDetailsProps) {
     const {id} = params;
-    const post = await getPostById(id);
+    const post: PostType | null = await getPostById(id);
 
     if (!post)
         notFound();
@@ -28,8 +30,12 @@ export default async function PostDetails({params}: PostDetailsProps) {
         <SearchBar />
 
         <article className="bg-white p-8 border-2 border-[#00C7B6] rounded-3xl shadow-lg">
-          <h1 className="text-3xl font-bold text-black mb-4">{post.title}</h1>
-          
+         
+          <div className="flex justify-between items-start mb-6 gap-4">
+            <h1 className="text-3xl font-bold text-black mb-4">{post.title}</h1>
+            <PostActions post={post} />
+          </div>
+
           <div className="prose lg:prose-lg max-w-none text-gray-800 mb-8">
              <ReactMarkdown>{post.content}</ReactMarkdown>
           </div>

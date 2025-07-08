@@ -10,6 +10,7 @@ const sanitizePost = (post: unknown): PostType => {
     title: string;
     content: string;
     author: {
+      id: number;
       username: string;
       bio?: string;
       profile_image?: string | null;
@@ -24,6 +25,7 @@ const sanitizePost = (post: unknown): PostType => {
     title: rawData.title,
     content: rawData.content,
     author: {
+      id: Number(rawData.author.id),
       username: rawData.author.username,
       bio: rawData.author.bio || undefined,
       profile_image: rawData.author.profile_image || undefined,
@@ -40,8 +42,6 @@ export default async function Homepage() {
 
   try {
     const initialData = await getPosts(1);
-    console.log('--- [SERVER] Raw data from API:', JSON.stringify(initialData, null, 2));
-
     
     if (initialData && Array.isArray(initialData.results)) {
       initialPosts = initialData.results.map(sanitizePost);
@@ -55,8 +55,6 @@ export default async function Homepage() {
   } catch (error) {
     console.error("Failed to fetch initial posts on server:", error);
   }
-
-  console.log(`[SERVER] Passing ${initialPosts.length} sanitized posts to NewsFeed.`);
 
   return (
       <div className="container mx-auto px-6 py-6 flex items-start gap-8">
