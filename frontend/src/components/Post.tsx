@@ -7,6 +7,7 @@ export interface PostType {
     title: string;
     content: string;
     author: {
+        id: number;
         username: string;
         bio?: string;
         profile_image?: string;
@@ -22,15 +23,24 @@ interface PostProps {
 
 const Post = ({post}: PostProps) => {
 
-    console.log('[CLIENT - Post] Rendering post with title:', post.title);
-
-
     return (
         <Link href={`/posts/${post.id}`} className="block bg-white p-6 border-2 border-[#00C7B6] rounded-3xl shadow-lg hover:shadow-xl transition-shadow cursor-pointer">
             <h2 className="text-xl font-bold text-black mb-2"> {post.title} </h2>
             
             <div className="text-[#AD8989] mb-4 line-clamp-6"> 
-                <ReactMarkdown>{post.content}</ReactMarkdown>
+                <ReactMarkdown
+                    components={{
+                        a: ({ ...props}) => {
+                            const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+                                e.stopPropagation(); 
+                            };
+                            
+                            return <a onClick={handleClick} {...props} className="text-blue-600 hover:underline" />;
+                        }
+                    }}
+                >
+                    {post.content}
+                </ReactMarkdown>
             </div>
 
             <div className="border-t border-gray-200 pt-3 flex items-center space-x-3">

@@ -1,7 +1,8 @@
 'use client'
 
 import React, {createContext, useContext, 
-    useState, useEffect, ReactNode} from 'react';
+    useState, useEffect, ReactNode,
+    useCallback} from 'react';
 import axios from 'axios';
 import { logoutUser } from '@/utils/api/auth';
 
@@ -14,11 +15,7 @@ interface User {
 interface loginResponce {
     access: string;
     refresh: string;
-    user: {
-        id: number;
-        username: string;
-        email: string;
-    };
+    user: User;
 }
 
 interface AuthContextType {
@@ -35,27 +32,28 @@ export const AuthProvider = ({children}: {children: ReactNode}) => {
     const [user, setUser] = useState<User | null>(null);
     const [loading, setLoading] = useState(true);
 
+
+    const checkLogInState = useCallback(() => {
+        try {
+            const storedUser = localStorage.getItem('user');
+            const accessToken = localStorage.getItem('access_token');
+
+             if (storedUser && accessToken) {
+                setUser(JSON.parse(storedUser));
+            }
+        } catch (error) {
+            console.error("Error: ", error);
+            const refreshToken = localStorage.getItem('refresh_token');
+            if (refreshToken !== null)
+                logoutUser(refreshToken);
+        } finally {
+            setLoading(false);
+            }
+    }, []);
+        
     useEffect(() => {
-            const checkLogInState = () => {
-                try {
-                    const storedUser = localStorage.getItem('user');
-                    const accessToken = localStorage.getItem('access_token');
-
-                    if (storedUser && accessToken) {
-                        setUser(JSON.parse(storedUser));
-                    }
-                } catch (error) {
-                    console.error("Error: ", error);
-                    const refreshToken = localStorage.getItem('refresh_token');
-                    if (refreshToken !== null)
-                        logoutUser(refreshToken);
-                } finally {
-                    setLoading(false);
-                }
-            };
-
             checkLogInState();
-        }, []);
+        }, [checkLogInState]);
 
     const login = (data: unknown) => {
         const responseData = data as loginResponce
@@ -92,7 +90,7 @@ export const AuthProvider = ({children}: {children: ReactNode}) => {
 
   const value = {user, login, logout, loading};
 
-  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
+  return (<AuthContext.Provider value={value}>{!loading ? children : null}</AuthContext.Provider>);
 };
 
 export const useAuth = () => {

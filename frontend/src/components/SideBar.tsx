@@ -1,7 +1,12 @@
+'use client';
+
 import Link from "next/link";
 import Picture from "./Picture";
+import { useAuth } from "@/context/AuthContext";
 
 const SideBar = () => {
+    const { user } = useAuth();
+
     return (
         <aside className="w-64 h-205 fixed top-22 left-0 bg-white rounded-2xl shadow-lg px-4 py-6 z-50">
                 <nav>
@@ -12,6 +17,15 @@ const SideBar = () => {
                                 <span> Home </span>
                             </Link>
                         </li>
+
+                        {user && (
+                         <li>
+                            <Link href="/posts/create"className="flex items-center space-x-4 text-lg font-semibold text-black hover:bg-gray-100 p-3 rounded-lg transition-colors">
+                                    <Picture url= "/add.png" width={24} height={24} alt= "Create Post" />
+                                        <span>Create Post</span>
+                            </Link>
+                        </li>
+                        )}
                     </ul>
                 </nav>
         </aside>

@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from .models import Post, Tag
-from users.serializers import UserProfileSerializer
+from users.serializers import CustomUserDetailsSerializer
 
 class TagSerializer(serializers.ModelSerializer):
     class Meta:
@@ -9,7 +9,7 @@ class TagSerializer(serializers.ModelSerializer):
 
 class PostSerializer(serializers.ModelSerializer):
 
-    author = UserProfileSerializer(read_only = True)
+    author = CustomUserDetailsSerializer(read_only = True)
 
     tags = serializers.SlugRelatedField(
         many = True,
