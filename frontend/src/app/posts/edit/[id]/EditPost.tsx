@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import { useAuth } from '@/context/AuthContext';
 import PostForm, { PostFormData } from '@/components/PostForm';
 import { updatePost } from '@/utils/api/post';
-import { PostType } from '@/components/Post';
+import { PostType } from '@/types';
 import Link from 'next/link';
 
 interface EditPostProps {
@@ -53,12 +53,6 @@ const EditPost = ({ post }: EditPostProps) => {
       </div>
     );
   }
-
-      // In ra console của trình duyệt để xem chính xác giá trị và kiểu dữ liệu
-  console.log('--- [AUTH CHECK] Edit Page ---');
-  console.log('User ID from context:', user.id, `(type: ${typeof user.id})`);
-  console.log('Post Author ID from props:', post.author.id, `(type: ${typeof post.author.id})`);
-  console.log('-----------------------------');
 
   if (user.id !== post.author.id) {
     return <div className="text-center p-12">You are not authorized to edit this post.</div>;

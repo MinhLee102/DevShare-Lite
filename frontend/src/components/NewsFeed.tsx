@@ -2,7 +2,8 @@
 
 import { useState, useRef, useCallback } from 'react';
 import { getPosts } from '@/utils/api/post';
-import Post, { PostType } from './Post';
+import Post from './Post';
+import { PostType } from '@/types';
 import { Loader } from 'lucide-react';
 
 interface NewsFeedProps {

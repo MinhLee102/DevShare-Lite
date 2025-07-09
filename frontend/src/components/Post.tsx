@@ -1,21 +1,7 @@
 import Link from "next/link";
 import Picture from "./Picture";
 import ReactMarkdown from 'react-markdown';
-
-export interface PostType {
-    id: number;
-    title: string;
-    content: string;
-    author: {
-        id: number;
-        username: string;
-        bio?: string;
-        profile_image?: string;
-    };
-    tags?: string[]
-    created_at: string;
-    updated_at: string;
-}
+import { PostType } from "@/types";
 
 interface PostProps {
     post: PostType;
