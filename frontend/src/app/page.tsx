@@ -2,7 +2,7 @@ import Sidebar from '@/components/SideBar';
 import SearchBar from '@/components/SearchBar';
 import NewsFeed from '@/components/NewsFeed';
 import { getPosts } from '@/utils/api/post';
-import { PostType } from '@/components/Post';
+import { PostType } from '@/types';
 
 const sanitizePost = (post: unknown): PostType => {
  const rawData = post as {
@@ -28,7 +28,7 @@ const sanitizePost = (post: unknown): PostType => {
       id: Number(rawData.author.id),
       username: rawData.author.username,
       bio: rawData.author.bio || undefined,
-      profile_image: rawData.author.profile_image || undefined,
+      profile_image: rawData.author.profile_image || null,
     },
     tags: rawData.tags || undefined,
     created_at: String(rawData.created_at),

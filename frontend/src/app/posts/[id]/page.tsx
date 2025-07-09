@@ -5,7 +5,8 @@ import Picture from "@/components/Picture";
 import ReactMarkdown from 'react-markdown'; 
 import { notFound } from 'next/navigation'; 
 import PostActions from "@/components/PostAction";
-import { PostType } from "@/components/Post";
+import { getCommentsForPost } from "@/utils/api/comment"; 
+import CommentSection from "@/components/CommentSection";
 
 interface PostDetailsProps {
     params: {
@@ -15,7 +16,11 @@ interface PostDetailsProps {
 
 export default async function PostDetails({params}: PostDetailsProps) {
     const {id} = params;
-    const post: PostType | null = await getPostById(id);
+     const [post, comments] = await Promise.all([
+        getPostById(id),
+        getCommentsForPost(id)
+    ]);
+    
 
     if (!post)
         notFound();
@@ -60,7 +65,7 @@ export default async function PostDetails({params}: PostDetailsProps) {
 
         {/*Comment Section */}
         <section className="bg-transparent p-4">
-            <h2 className="text-2xl font-bold text-gray-500 mb-6">Comments</h2>
+            <CommentSection postId={post.id} initialComments={comments} />
         </section>
       </main>
     </div>

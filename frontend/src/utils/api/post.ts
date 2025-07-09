@@ -1,23 +1,6 @@
-import axios from "axios"
-import { PostType } from "@/components/Post";
+import { PostType } from "@/types";
+import apiClient from "./apiConfig";
 
-const apiClient = axios.create({baseURL: "http://localhost:8000/api"});
-
-apiClient.interceptors.request.use(
-  (config) => {
-    if (typeof window !== 'undefined') {
-      const accessToken = localStorage.getItem('access_token');
-      if (accessToken) {
-        config.headers['Authorization'] = `Bearer ${accessToken}`;
-        console.log('[AXIOS INTERCEPTOR] Attaching token...');
-      }
-    }
-    return config;
-  },
-  (error) => {
-    return Promise.reject(error);
-  }
-);
 
 export const createPost = async (data: { title: string; content: string; tags?: string[] }) => {
     const response = await apiClient.post<PostType>('/posts/', data);

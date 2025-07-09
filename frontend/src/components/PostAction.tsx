@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { useAuth } from '@/context/AuthContext';
-import { PostType } from '@/components/Post'
+import { PostType } from '@/types';
 import Picture from './Picture';
 import { deletePost } from '@/utils/api/post';
 import { useRouter } from 'next/navigation'; 
