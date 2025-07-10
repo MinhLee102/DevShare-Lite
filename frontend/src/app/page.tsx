@@ -18,6 +18,7 @@ const sanitizePost = (post: unknown): PostType => {
     tags?: string[]
     created_at: string;
     updated_at: string;
+    status: 'DR' | 'PB';
   };
 
   return {
@@ -33,6 +34,7 @@ const sanitizePost = (post: unknown): PostType => {
     tags: rawData.tags || undefined,
     created_at: String(rawData.created_at),
     updated_at: String(rawData.updated_at),
+    status: rawData.status
   };
 };
 

@@ -15,8 +15,8 @@ class ProfileView(generics.RetrieveUpdateAPIView):
         user = self.get_object()
         user_data = self.get_serializer(user).data
         
-        published_posts = user.posts.filter(status='PB')
-        draft_posts = user.posts.filter(status='DR')
+        published_posts = user.post.filter(status='PB')
+        draft_posts = user.post.filter(status='DR')
         
         data = {
             'profile': user_data,

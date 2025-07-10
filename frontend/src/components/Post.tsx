@@ -16,7 +16,8 @@ const Post = ({post}: PostProps) => {
             <div className="text-[#AD8989] mb-4 line-clamp-6"> 
                 <ReactMarkdown
                     components={{
-                        a: ({ ...props}) => {
+                        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+                        a: ({node, ...props}) => {
                             const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
                                 e.stopPropagation(); 
                             };
