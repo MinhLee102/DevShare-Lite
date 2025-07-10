@@ -18,7 +18,6 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-from users.views import get_user_profile_data
 
 
 
@@ -29,9 +28,9 @@ urlpatterns = [
     
     path('api/auth/registration/', include('dj_rest_auth.registration.urls')),
 
-    path('api/user_data/<str:pk>/', get_user_profile_data),
-
     path('api/', include('posts.urls')),
+
+    path('api/users/', include('users.urls')),
 
 ] + static(settings.MEDIA_URL, document_root= settings.MEDIA_ROOT)
 

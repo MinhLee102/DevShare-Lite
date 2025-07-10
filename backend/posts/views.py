@@ -1,5 +1,7 @@
 from rest_framework import viewsets, generics
 from rest_framework.decorators import action
+from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework import filters
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from backend.pagination import StandardResultsSetPagination
 from .models import Post, Tag
@@ -10,8 +12,11 @@ class PostViewSet(viewsets.ModelViewSet):
     queryset = Post.objects.select_related('author').prefetch_related('tags').all().order_by('-created_at')
     serializer_class = PostSerializer
     permission_classes = [IsAuthenticatedOrReadOnly, IsAuthorOrReadOnly]
-
     pagination_class = StandardResultsSetPagination
+
+    filter_backends = [filters.SearchFilter, filters.OrderingFilter]
+    search_fields = ['title', 'content', 'author__username', 'tags__name']
+    ordering_fields = ['created_at', 'updated_at']
 
     def perform_create(self, serializer):
         serializer.save(author = self.request.user)
