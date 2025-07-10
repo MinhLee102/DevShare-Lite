@@ -1,13 +1,24 @@
 'use client';
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import Picture from "./Picture";
 
 const SearchBar = () => {
     const [query, setQuery] = useState('');
+    const router = useRouter();
+
+     const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault(); 
+        
+        if (!query.trim()) {
+            return;
+        }
+        router.push(`/search?q=${encodeURIComponent(query)}`);
+    };
 
     return (
-        <form className="w-full bg-white p-2 border-2 border-[#00C7B6] rounded-full shadow-sm flex items-center">
+        <form onSubmit={handleSearch} className="w-full bg-white p-2 border-2 border-[#00C7B6] rounded-full shadow-sm flex items-center">
             <input
                 id= "search" name= "search" type= "text" value={query} 
                 onChange={(e) => setQuery(e.target.value)} placeholder= "Search DevShare"

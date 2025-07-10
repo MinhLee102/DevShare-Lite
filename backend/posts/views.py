@@ -10,7 +10,6 @@ from .permissions import IsAuthorOrReadOnly
 from rest_framework.response import Response
 
 class PostViewSet(viewsets.ModelViewSet):
-    queryset = Post.objects.select_related('author').prefetch_related('tags').all().order_by('-created_at')
     serializer_class = PostSerializer
     permission_classes = [IsAuthenticatedOrReadOnly, IsAuthorOrReadOnly]
     pagination_class = StandardResultsSetPagination
@@ -18,6 +17,11 @@ class PostViewSet(viewsets.ModelViewSet):
     filter_backends = [filters.SearchFilter, filters.OrderingFilter]
     search_fields = ['title', 'content', 'author__username', 'tags__name']
     ordering_fields = ['created_at', 'updated_at']
+
+    def get_queryset(self):
+        if self.action == 'list':
+            return Post.objects.filter(status=Post.PostStatus.PUBLISHED).select_related('author').prefetch_related('tags').order_by('-created_at')
+        return Post.objects.all().select_related('author').prefetch_related('tags')
 
     def perform_create(self, serializer):
         serializer.save(author = self.request.user)

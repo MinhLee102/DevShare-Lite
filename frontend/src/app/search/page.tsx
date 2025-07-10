@@ -26,7 +26,7 @@ export default function SearchPage({ searchParams }: { searchParams?: { q?: stri
                 <aside className="sticky top-24"><SideBar /></aside>
             </div>
             <main className="flex-1 min-w-0">
-                <div className="sticky top-24 z-40 bg-gray-200 pb-6 -mt-1 pt-1">
+                <div className="sticky top-24 z-4 pb-6 -mt-1 pt-1">
                     <SearchBar />
                 </div>
                 <div className="mt-2">

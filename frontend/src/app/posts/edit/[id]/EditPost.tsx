@@ -36,7 +36,7 @@ const EditPost = ({ post }: EditPostProps) => {
         tags: tagsArray,
       });
       alert('Changes saved!');
-      router.refresh(); 
+      router.push(`/posts/${post.id}`);    
     } catch (err) {
       setError('Failed to save changes.');
       console.log(err);
