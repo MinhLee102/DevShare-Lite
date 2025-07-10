@@ -27,9 +27,10 @@ class PostSerializer(serializers.ModelSerializer):
             'author',
             'tags',
             'created_at',
-            'updated_at'
+            'updated_at',
+            'status'
         ]
-        read_only_fields = ['author', 'created_at', 'updated_at']
+        read_only_fields = ['author', 'created_at', 'updated_at', 'status']
 
     def to_internal_value(self, data):
         tag_names = data.get('tags')

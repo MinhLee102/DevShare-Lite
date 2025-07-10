@@ -1,4 +1,5 @@
 from rest_framework import viewsets, generics
+from rest_framework.decorators import action
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from backend.pagination import StandardResultsSetPagination
 from .models import Post, Tag
@@ -14,6 +15,17 @@ class PostViewSet(viewsets.ModelViewSet):
 
     def perform_create(self, serializer):
         serializer.save(author = self.request.user)
+
+    @action(detail=True, methods=['post'], permission_classes=[IsAuthorOrReadOnly])
+    def publish(self, request, pk=None):
+        post = self.get_object()
+        if post.status == 'PB':
+            return Response({'detail': 'This post has already been published.'}, status=status.HTTP_400_BAD_REQUEST)
+            
+        post.status = 'PB'
+        post.save()
+        serializer = self.get_serializer(post)
+        return Response(serializer.data)
 
 
 class TagViewSet(viewsets.ReadOnlyModelViewSet):
