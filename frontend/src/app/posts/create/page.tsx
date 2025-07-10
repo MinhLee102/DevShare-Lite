@@ -4,29 +4,45 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '@/context/AuthContext';
 import PostForm, { PostFormData } from '@/components/PostForm';
-import { createPost } from '@/utils/api/post';
+import { createPost, updatePost, publishPost } from '@/utils/api/post';
 import Link from 'next/link';
+import { useAutosave } from '@/hooks/autosave';
 
 const CreatePost = () => {
   const router = useRouter();
   const { user, loading: authLoading } = useAuth(); 
+
+  const [draftId, setDraftId] = useState<number | null>(null);
+  const { formData, setFormData } = useAutosave(
+    { title: '', content: '', tags: '' }, 
+    draftId, 
+    setDraftId
+  );
+
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   const handleSubmit = async (data: PostFormData) => {
     setIsSubmitting(true);
     setError(null);
-    try {
-      const tagsArray = data.tags.split(',').map(tag => tag.trim()).filter(Boolean);
-      const newPost = await createPost({
-        title: data.title,
-        content: data.content,
-        tags: tagsArray,
-      });
-      router.push(`/posts/${newPost.id}`);
+    let currentPostId = draftId;
+
+try {
+      if (!currentPostId) {
+        const tagsArray = data.tags.split(',').map(tag => tag.trim()).filter(Boolean);
+        const newPost = await createPost({ ...data, tags: tagsArray });
+        currentPostId = newPost.id;
+      } else {
+        const tagsArray = data.tags.split(',').map(tag => tag.trim()).filter(Boolean);
+        await updatePost(currentPostId, { ...data, tags: tagsArray });
+      }
+
+      await publishPost(currentPostId);
+      
+      router.push(`/posts/${currentPostId}`);
     } catch (err) {
       console.error(err);
-      setError("Failed to create post. Please check your input and try again.");
+      setError("Failed to publish post. Please try again.");
       setIsSubmitting(false);
     }
   };
@@ -51,7 +67,9 @@ const CreatePost = () => {
     <div className="container mx-auto max-w-4xl px-4 py-8">
       <h1 className="text-3xl font-bold mb-6">Create New Post</h1>
       <PostForm
+        initialData={formData}
         onSubmit={handleSubmit}
+        onFormDataChange={setFormData}
         buttonText="Create Post"
         isSubmitting={isSubmitting}
         error={error}

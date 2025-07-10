@@ -2,7 +2,7 @@ import { PostType } from "@/types";
 import apiClient from "./apiConfig";
 
 
-export const createPost = async (data: { title: string; content: string; tags?: string[] }) => {
+export const createPost = async (data: { title: string; content: string; tags?: string[]; status?: 'DR' | 'PB' }) => {
     const response = await apiClient.post<PostType>('/posts/', data);
     return response.data;
 };
@@ -34,5 +34,25 @@ export const getPostById = async (id: string | number) => {
     } catch (error) {
         console.error("Failed to get post details", error);
         return null;
+    }
+}
+
+export const searchPosts = async (query: string) => {
+    try {
+        const response = await apiClient.get(`/posts/?search=${query}`);
+        return response.data.results || [];
+    } catch (error) {
+        console.error("Search failed:", error);
+        return [];
+    }
+};
+
+export const publishPost = async (id: string | number) => {
+    try {
+        const response = await apiClient.post<PostType>(`/posts/${id}/publish/`);
+        return response.data;
+    } catch (error) {
+        console.error(`Failed to publish post ${id}:`, error);
+        throw error;
     }
 }

@@ -1,4 +1,4 @@
-from rest_framework import viewsets, generics
+from rest_framework import viewsets, generics, status
 from rest_framework.decorators import action
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import filters
@@ -7,6 +7,7 @@ from backend.pagination import StandardResultsSetPagination
 from .models import Post, Tag
 from .serializers import PostSerializer, TagSerializer
 from .permissions import IsAuthorOrReadOnly
+from rest_framework.response import Response
 
 class PostViewSet(viewsets.ModelViewSet):
     queryset = Post.objects.select_related('author').prefetch_related('tags').all().order_by('-created_at')

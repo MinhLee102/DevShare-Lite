@@ -8,6 +8,12 @@ export interface Author {
 
 export type User = Author;
 
+export interface UserProfile {
+  profile: User;
+  drafts: PostType[];
+  published_posts: PostType[];
+}
+
 export interface PostType {
     id: number;
     title: string;
@@ -16,6 +22,7 @@ export interface PostType {
     tags?: string[]
     created_at: string;
     updated_at: string;
+    status: 'DR' | 'PB';
 }
 
 export interface Reply {

@@ -26,6 +26,13 @@ const SideBar = () => {
                             </Link>
                         </li>
                         )}
+
+                        <li>
+                            <Link href="/profile" className="flex items-center space-x-4 text-lg font-semibold text-black hover:bg-gray-100 p-3 rounded-lg transition-colors">
+                                <Picture url="/profile-user.png" width={24} height={24} alt="My Profile" />
+                                <span>My Profile</span>
+                            </Link>
+                        </li>
                     </ul>
                 </nav>
         </aside>

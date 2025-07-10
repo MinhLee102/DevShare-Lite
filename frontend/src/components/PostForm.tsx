@@ -9,13 +9,15 @@ export interface PostFormData {
 
 interface PostFormProps {
   initialData?: PostFormData;
+  onFormDataChange: (data: PostFormData) => void;
   onSubmit: (data: PostFormData) => Promise<void>;
   buttonText: string;
   isSubmitting: boolean; 
   error: string | null; 
 }
 
-const PostForm = ({ initialData, onSubmit, buttonText, isSubmitting, error }: PostFormProps) => {
+const PostForm = ({ initialData, onFormDataChange, onSubmit, buttonText, isSubmitting, error }: PostFormProps) => {
+  
   const [formData, setFormData] = useState<PostFormData>({
     title: '',
     content: '',
@@ -30,7 +32,9 @@ const PostForm = ({ initialData, onSubmit, buttonText, isSubmitting, error }: Po
   }, [initialData]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const newFormData = { ...formData, [e.target.name]: e.target.value };
+    setFormData(newFormData);
+    onFormDataChange(newFormData); 
   };
 
   const handleSubmit = (e: FormEvent) => {
