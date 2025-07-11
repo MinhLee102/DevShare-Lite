@@ -26,7 +26,8 @@ export default function CommentSection({ postId, initialComments }: CommentSecti
         }
         try {
             await createComment(postId, { content, parent: replyingTo });
-            setReplyingTo(null); 
+            setReplyingTo(null);
+
             router.refresh(); 
         } catch (error) {
             console.error("Failed to post comment:", error);
