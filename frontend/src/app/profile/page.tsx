@@ -1,13 +1,13 @@
 'use client';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, ChangeEvent } from 'react';
 import { useAuth } from '@/context/AuthContext';
-import { getProfile } from '@/utils/api/user';
-import { PostType } from '@/types';
+import { getProfile, updateProfile } from '@/utils/api/user';
+import { PostType, UserProfile } from '@/types';
 import Post from '@/components/Post';
 import SideBar from '@/components/SideBar';
 import Picture from '@/components/Picture';
 import Link from 'next/link';
-import { UserProfile } from '@/types';
+import Button from '@/components/Button';
 
 
 export default function ProfilePage() {
@@ -15,10 +15,14 @@ export default function ProfilePage() {
     const [data, setData] = useState<UserProfile | null>(null);
     const [loading, setLoading] = useState(true);
 
+    const [bio, setBio] = useState(''); 
+    const [isSaving, setIsSaving] = useState(false); 
+
     useEffect(() => {
         if (user) {
             getProfile().then(profileData => {
                 setData(profileData);
+                setBio(profileData.profile.bio || ''); 
                 setLoading(false);
             });
         }
@@ -26,6 +30,27 @@ export default function ProfilePage() {
             setLoading(false);
         }
     }, [user, authLoading]);
+
+    const handleProfileSave = async () => {
+        setIsSaving(true);
+        try {
+            const updatedProfileData = await updateProfile({ bio: bio });
+            
+            setData(prevData => {
+                if (!prevData) return null;
+                return {
+                    ...prevData,
+                    profile: updatedProfileData,
+                };
+            });
+            alert('Profile saved successfully!');
+        } catch (error) {
+            console.error("Failed to save profile:", error);
+            alert("Could not save profile. Please try again.");
+        } finally {
+            setIsSaving(false);
+        }
+    };
     
     if (authLoading || loading) return <div className="text-center p-12">Loading Profile...</div>;
     if (!user || !data) return <div className="text-center p-12">Please log in to see your profile.</div>;
@@ -45,8 +70,15 @@ export default function ProfilePage() {
                         <div className="flex-1 space-y-2 w-full">
                            <p><span className="font-semibold">Username:</span> {profile.username}</p>
                            <p><span className="font-semibold">Email:</span> {profile.email}</p>
-                           <textarea placeholder="Your bio here..." defaultValue={profile.bio ?? ''} className="w-full p-2 border rounded mt-2"/>
-                           <button className="bg-blue-600 text-white px-4 py-2 rounded">Save Profile</button>
+                           <div>
+                                <textarea id="bio" placeholder="Your bio here..." value={bio} 
+                                onChange={(e: ChangeEvent<HTMLTextAreaElement>) => setBio(e.target.value)} 
+                                className="w-full p-2 border rounded mt-2" rows={3}/>
+                           </div>
+
+                            <Button onClick={handleProfileSave} disabled={isSaving} className="bg-blue-600 text-white px-4 py-2 rounded">
+                                {isSaving ? 'Saving...' : 'Save Profile'}
+                            </Button>
                         </div>
                     </div>
                 </div>
