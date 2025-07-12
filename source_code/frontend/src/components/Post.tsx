@@ -7,9 +7,12 @@ import { PostType } from "@/types";
 
 interface PostProps {
     post: PostType;
+    href?: string;
 }
 
-const Post = ({post}: PostProps) => {
+const Post = ({post, href }: PostProps) => {
+
+    const finalLink = href || `/posts/${post.id}`;
 
     return (
         <div className="group relative block bg-white p-6 border-2 border-[#00C7B6] rounded-3xl shadow-lg hover:shadow-xl transition-shadow">
@@ -48,7 +51,7 @@ const Post = ({post}: PostProps) => {
                 <span className="font-semibold text-[#AD8989]">{post.author.username}</span>
             </div>
 
-            <Link href={`/posts/${post.id}`} className="absolute inset-0 z-0" aria-label={`View post: ${post.title}`}></Link>
+            <Link href={finalLink} className="absolute inset-0 z-0" aria-label={`View post: ${post.title}`}></Link>
         </div>
     );
 };
