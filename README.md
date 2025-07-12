@@ -4,7 +4,7 @@
 - **Student ID:** 23020683
 
 ---
-> This README only provides project overview, tech stack, directory structure and installation & setup on local computer. 
+> This README only provides **project overview, tech stack, directory structure and installation & setup on local computer**. 
 
 > For **Database design**, access: [Database Design](DATABASE_DESIGN.md)
 
