@@ -154,15 +154,17 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTHENTICATION_BACKEND = [
+    # Needed for the standard Django admin site to function correctly with username login.
     'django.contrib.auth.backends.ModelBackend',
+
+     # Allauth's specific authentication backend, which handles logic like logging in via email.
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
+# This is the key setting to allow users to log in with either their username OR email.
 ACCOUNT_LOGIN_METHODS = {'username', 'email'}
 ACCOUNT_SIGNUP_FIELDS = ['email*', 'username*', 'password1*', 'password2*']
 ACCOUNT_UNIQUE_EMAIL = True
-
-
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
@@ -176,6 +178,7 @@ REST_FRAMEWORK = {
     ),
 }
 
+#REST Auth settings
 REST_AUTH = {
     'USE_JWT': True,
     'SESSION_LOGIN':  False,

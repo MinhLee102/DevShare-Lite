@@ -5,7 +5,7 @@
 -- Dumped from database version 17.5
 -- Dumped by pg_dump version 17.5
 
--- Started on 2025-07-12 01:21:55
+-- Started on 2025-07-13 01:22:02
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -730,6 +730,9 @@ COPY public.account_emailaddress (id, email, verified, "primary", user_id) FROM 
 3	test4@example.com	f	t	3
 4	minh@example.com	f	t	4
 5	namiya@example.com	f	t	5
+6	long123@gmail.com	f	t	6
+7	theanh123@gmail.com	f	t	7
+8	test@example.com	f	t	8
 \.
 
 
@@ -857,6 +860,13 @@ COPY public.comments_comment (id, content, created_at, updated_at, commenter_id,
 7	Nice man	2025-07-09 23:15:08.774865+07	2025-07-09 23:15:08.774878+07	4	\N	12
 10	hmmmmmm	2025-07-11 15:33:52.638789+07	2025-07-11 15:33:52.638802+07	5	\N	31
 11	sheshh nice bro	2025-07-11 15:34:21.164899+07	2025-07-11 15:34:21.164911+07	5	\N	12
+12	thank u for ur information	2025-07-13 00:07:34.822752+07	2025-07-13 00:07:34.822765+07	8	\N	36
+13	really appreaciate that man	2025-07-13 00:07:45.590865+07	2025-07-13 00:07:45.590874+07	8	\N	36
+14	wowwww	2025-07-13 00:09:17.48852+07	2025-07-13 00:09:17.488532+07	1	\N	36
+15	very informative	2025-07-13 00:09:28.554787+07	2025-07-13 00:09:28.554799+07	1	\N	36
+16	i will try it on my next test!!	2025-07-13 00:09:43.408102+07	2025-07-13 00:09:43.408114+07	1	\N	36
+17	thanks man	2025-07-13 00:10:47.494888+07	2025-07-13 00:10:47.494896+07	8	15	36
+18	wish u luckk	2025-07-13 00:10:53.384669+07	2025-07-13 00:10:53.384681+07	8	16	36
 \.
 
 
@@ -971,6 +981,9 @@ j7gwhqr3yhh6f630qquwag3uphqv5mnr	.eJxVjDkOwjAUBe_iGlnevmJT0nMG6y8WDiBbipMKcXeIlA
 pu39u1dwnatnjhr1z0lvu9tckbnm3iuw	.eJxVjEEOwiAQRe_C2pACWpgu3XsGMjBTiyIkbXFjvLs26abb_977H4Ex1lZW_-Y5jYnJ8wtTFkNpOZ-Ex7ZOvi08-0RiEEYctoDxyWUD9MByrzLWss4pyE2RO13krRLn6-4eDiZcpn9tQY0XjV2wESyBIqMMBatcZzsXg9OOgK3ujYrEBGjOhlQA3SsI2iCJ7w8jpkLc:1uY3Eu:QgyEYJ2j87Q7SEit2YxTqIIgERnK_SeD2jVwdSD7dLQ	2025-07-19 20:47:36.01009+07
 fpx2e5glkp28oobqgdkfcevmi7q7lv76	.eJxVjEEOgyAQRe_CuiEWQRyX3fcMZBjGSkshUemm6d2riRu3_733vwKJSs2r-_Acx8jB8RtjEkOuKV2Ew7pOri48uxjEILQ4bR7pxXkH4Yn5USSVvM7Ry12RB13kvQROt8M9HUy4TFvdkDaKjYeWCbAhH2yPqoHQdswKWmM7a6GnUY9XMIwdkSGgDSkA9ih-f0BlQ7w:1uZXRg:CdQHi23OVv68wGfyHA1lepwGFcZQ3dOTEQl9bcPsVvc	2025-07-23 23:14:56.081337+07
 t7ski7pynserpay4l3xfb00f3d3imspg	.eJxVjMsOwiAQAP-FsyFA6QOP3v0GsssuFkVI2uLF-O-mSS-9zkzmKyCE2srmP7ykmJg8vyFlcS0t54vw0LbZt5UXn0hcRS9ODCG8uOyCnlAeVYZatiWh3BN52FXeK3G-He1pMMM671sFvdXBoEKykzbRQN9FZA0wOqWn0ZGO48CArqNuYFaWMIJ2Co2dgha_PzqZQ38:1ua936:RIJ_p0s_mii1jws-W2z1L-uSF2t9AFJ6TYNI_7jMlog	2025-07-25 15:24:04.494224+07
+trdof5hhjvo94vdj383tkk8223klfj7j	.eJxVjEEOwiAQRe_C2pAWikNduvcMZGAGiyIkbXFjvLs26abb_977H4Eh1FZW9-Y5xcTk-IUpi0tpOZ-Ew7ZOri08u0TiIs7isHkMTy4boAeWe5WhlnVOXm6K3Okib5U4X3f3cDDhMv1rYMNgYFQxKq9sMJF4GEh3ATT0yvbIGqMhzR66OPZKDeyD6cha40Eb8f0BQI1DRw:1uabiz:NOvCoq6y3nQ47WiF1CW77noJfpRLyLzPng7oukNvN5I	2025-07-26 22:01:13.867074+07
+q29ra6ei06n07osrhqyvsnnmxx2kjm1n	.eJxVjEEOwiAQRe_C2hAChVKX7j0DGWYGiyJN2uLGeHfbpJtu_3vvfwUgTq2u4cNzTpkp8BtyEdfaSrmIAG0dQ1t4DpnEVfTitEXAF9cd0BPqY5I41XXOUe6KPOgi7xNxuR3u6WCEZdzqwbgerCYmcOgSmE4RWuPBqm7w3vWEG4AuodI2Kk3KWeJokvegNCbx-wNFGUPF:1uacKy:g32l4_Kyr4PniemEa9mH3w3uO9l7rwK4NGnpR_qGS5Q	2025-07-26 22:40:28.340291+07
+0s74o0eqh3eh66lkj00n73olnqgsu98i	.eJxVjDsOwyAQBe9CHSEwH2OX6XMGtGaXmISAZJs0Ue6eWHLj9s3M-zAIobay-TctKSZCTy9ImY2l5XxhHto2-7bS4hOykTl22iYITyo7wAeUe-Whlm1JE98VftCV3ypSvh7u6WCGdf7XKgyDhmhMJGctkY2qjz1FMbhOOXTCOAA5CWVtMK4DGVFqKQGtQC2MZN8fPQZC5w:1uadMO:z7fWQ4kstB9FkHeIgp4JL0I8CK8ZK3WyRpayYeevP8c	2025-07-26 23:46:00.769812+07
 \.
 
 
@@ -1002,8 +1015,12 @@ COPY public.posts_post (id, title, content, created_at, updated_at, author_id, s
 11	Third API Post	# Markdown syntax guide ## Headers # This is a Heading h1 ## This is a Heading h2 ###### This is a Heading h6 ## Emphasis	2025-07-06 01:14:14.40414+07	2025-07-06 01:14:14.404156+07	1	PB
 32	Hello Im new to this app	Can you guys help me? This app is kinda new to me so...\n\nThanks u	2025-07-11 15:25:10.963838+07	2025-07-11 15:33:37.066117+07	5	PB
 33	hello	I don't know what to say	2025-07-11 15:37:32.159066+07	2025-07-11 15:37:32.15913+07	5	DR
+34	😱 7 Lỗi Bảo Mật API Khiến Hacker **LUỘC CHÍN** Server Bạn Trong Tích Tắc!	**Bỏ sót những lỗi bảo mật sau đây có thể khiến hệ thống của bạn dễ bị tấn công hoặc lộ thông tin người dùng.**\n\n---\n\n## 1. ❌ TRẢ LỖI QUÁ CHI TIẾT (*Error Disclosure*)\n\nAPI trả về lỗi quá chi tiết như: lỗi database, tên bảng, đường dẫn nội bộ...\n\n### ✅ Giải pháp:\n- Chỉ hiển thị lỗi chung chung cho người dùng (VD: “Đã xảy ra lỗi”).\n- Ghi log chi tiết ở phía server, không gửi ra ngoài.\n\n---\n\n## 2. ❌ KHÔNG GIỚI HẠN SỐ LẦN GỌI API (*No Rate Limiting*)\n\nAi cũng có thể gửi hàng ngàn request mỗi giây → dễ bị tấn công **DDoS** hoặc **brute force**.\n\n### ✅ Giải pháp:\n- Áp dụng giới hạn số request mỗi IP trong một khoảng thời gian.\n- Dùng thư viện như `express-rate-limit` (Node.js), `throttle` (Laravel)...\n\n---\n\n## 3. ❌ KHÔNG KIỂM TRA DỮ LIỆU ĐẦU VÀO (*No Input Validation*)\n\nAPI chấp nhận tất cả dữ liệu (sai định dạng, chứa mã độc hoặc SQL Injection) mà không có bất kỳ cơ chế kiểm tra hoặc xác thực nào.\n\n### ✅ Giải pháp:\n- Kiểm tra kiểu dữ liệu, độ dài, giá trị hợp lệ trước khi xử lý.\n- Dùng thư viện validate như `Joi`, `Yup`, `express-validator`...\n\n---\n\n## 4. ❌ CORS CẤU HÌNH SAI\n\nCho phép mọi tên miền truy cập API (`Access-Control-Allow-Origin: *`) → bên thứ ba có thể sử dụng trái phép.\n\n### ✅ Giải pháp:\n- Chỉ cho phép các tên miền tin cậy truy cập (whitelist).\n- Cấu hình CORS đúng, **tránh wildcard**.\n\n---\n\n## 5. ❌ THIẾU CƠ CHẾ BẢO VỆ KHI ĐĂNG NHẬP NHIỀU LẦN\n\nKhông giới hạn số lần nhập sai username & password.\n\n### ✅ Giải pháp:\n- Giới hạn số lần thử đăng nhập sai.\n- Thêm **CAPTCHA** hoặc **tạm khóa tài khoản** sau nhiều lần sai.\n\n---\n\n## 6. ❌ KHÔNG LÀM MỚI TOKEN / KHÔNG CÓ CƠ CHẾ HẾT HẠN\n\nToken sống mãi không hết hạn, hoặc không thể làm mới → nếu bị lộ sẽ rất nguy hiểm.\n\n### ✅ Giải pháp:\n- Token cần có **hạn sử dụng ngắn** (vd: 15 phút).\n- Cung cấp **refresh token an toàn** để lấy token mới.\n\n---\n\n## 7. ❌ KHÔNG MÃ HÓA DỮ LIỆU TRUYỀN TẢI\n\nDữ liệu gửi/nhận qua mạng không được mã hóa → dễ bị đánh cắp thông tin đăng nhập, token...\n\n### ✅ Giải pháp:\n- Luôn dùng **HTTPS** thay vì HTTP (môi trường production).\n- Không chấp nhận yêu cầu từ HTTP trong môi trường thực tế.\n\n---\n\n> 🔐 *Hãy kiểm tra kỹ hệ thống của bạn trước khi bị hacker “nướng chín” server nhé!*	2025-07-12 23:51:00.772595+07	2025-07-12 23:51:00.772603+07	8	PB
+35	🧠 CHÚNG TA NẮM ĐƯỢC BAO NHIÊU TỪ VỰNG TIẾNG NHẬT?	Đã bao giờ bạn **băn khoăn về số lượng từ vựng tiếng Nhật** mà mình đang biết chưa?\n\nNếu chưa từng thì bạn có thể kéo tiếp.  \nCòn nếu đã từng thì... các bạn cũng **vẫn kéo tiếp nhé**, vì **không có câu trả lời** cho bạn ở đây đâu ☺️\n\n> え？Bạn vẫn đang đọc tiếp à!? 😳  \n> Nếu thế thì mình xin được gợi ý một trang web để **tạm thời ước lượng số từ vựng tiếng Nhật** bạn "nắm giữ" ở đây nha ↓\n\n🔗 **[令和版語彙数推定テスト - Vocabulary Size Estimation Tool (NTT)](https://www.kecl.ntt.co.jp/mtg/resources/vocabulary_test/php/login.php)**\n\n---\n\n## 🔍 Giới thiệu nhanh về công cụ:\n\n> **令和版語彙数推定テスト** là một công cụ trực tuyến miễn phí do **Công ty NTT (日本電信電話株式会社)** phát triển,  \n> nhằm **ước lượng số lượng từ vựng tiếng Nhật mà một người biết**.\n\n### 🧩 Cơ chế hoạt động:\n- Dựa trên việc bạn đánh dấu những từ bạn **nhận biết** trong danh sách được cung cấp.\n- Sử dụng **cơ sở dữ liệu về độ quen thuộc của từ vựng** để đưa ra ước tính.\n\n---\n\n## ✅ Những điểm đáng chú ý:\n\n- **Độ chính xác cao** (theo mô tả từ NTT).\n- Phiên bản *Reiwa* sử dụng **dữ liệu từ vựng mở rộng**, có thể ước lượng đến khoảng **135.000 từ**.\n- Cho phép **so sánh kết quả theo độ tuổi**, để bạn biết số lượng từ vựng của mình có tương đương với **người Nhật cùng độ tuổi** hay không.\n\n---\n\n## ☝️ Lưu ý nhỏ:\n\n> Vì đây là một bài kiểm tra dựa trên **nhận diện từ vựng**,  \n> nên **kết quả chỉ mang tính tham khảo – vui là chính** nhé mọi người 🧃\n\n---\n\nVậy thôi, chúc cả nhà một **buổi tối thư giãn** nhé xD  \nCheers 🥂	2025-07-12 23:51:57.747776+07	2025-07-12 23:51:57.747783+07	8	PB
 13	Hello guyss	Hi everyone. my name is Minh. nice to meet you all	2025-07-08 22:42:07.436435+07	2025-07-09 23:08:14.28335+07	1	PB
 12	Third API Post	# 🌟 Giới thiệu về DevShare Lite\n\n**DevShare Lite** là một nền tảng chia sẻ kiến thức lập trình dành cho cộng đồng sinh viên và lập trình viên trẻ.\n\n## 🎯 Mục tiêu\n- ✅ Chia sẻ bài viết chất lượng\n- 💬 Giao lưu học hỏi lẫn nhau\n- 🧠 Tạo động lực phát triển bản thân\n\n## 📌 Tính năng nổi bật\n1. **Đăng bài viết** với hỗ trợ _Markdown_\n2. **Bình luận và tương tác** với cộng đồng\n3. **Tìm kiếm thông minh** theo từ khóa\n\n> *“Học tập là con đường ngắn nhất để trưởng thành.”* – DevShare Team\n\n---\n\nBạn có thể bắt đầu bằng cách đăng ký tài khoản [tại đây](http://localhost:3000/signup).  \nChúc bạn học vui! 🚀	2025-07-06 01:16:30.314588+07	2025-07-09 23:14:23.029941+07	1	PB
+36	🧠 CHI TIẾT TIPS LÀM ĐỌC HIỂU JLPT - VÍ DỤ ỨNG DỤNG!	Mình đã từng **hoa mắt chóng mặt**, đọc xong bài xuống chọn đáp án lại chẳng nhớ bài đang nói gì khi làm một bài đọc hiểu JLPT?\n\nNhưng sau khi áp dụng một số nguyên tắc và mẹo nhỏ, **điểm đọc hiểu tăng lên rõ rệt**.  \nNay mình chia sẻ lại cho bạn nào cần nhé!\n\n---\n\n## ✅ NGUYÊN TẮC VÀNG KHI LÀM BÀI ĐỌC HIỂU\n\n### 📌 1. Làm chậm mà chắc – *ăn chắc không ăn hết*\n\n- Tập trung làm thật kỹ 2/3 số bài trước rồi mới làm phần còn lại.\n- Tránh đọc lướt quá nhanh, dễ bị chọn nhầm đáp án "bẫy".\n- Hãy **bình tĩnh đọc – xử lý – tóm ý** thay vì chạy theo số lượng.\n\n---\n\n### 📌 2. Luôn đọc **câu hỏi trước**, đừng đọc **đáp án trước**\n\n- Đọc câu hỏi để xác định **thông tin cần tìm**.\n- Không đọc đáp án trước → dễ bị "dẫn dụ" theo ấn tượng sai lệch.\n\n---\n\n### 📌 3. Tóm ý & chốt đáp án **trong lúc đọc bài**\n\n- Đừng đọc bài rồi mới dò đáp án sau.\n- **Tóm ý theo từng đoạn**, tìm từ khóa liên quan đến câu hỏi → chọn đáp án luôn.\n\n---\n\n## 🧘‍♀️ MẸO QUẢN LÝ THỜI GIAN\n\nSau mỗi dạng bài:  \n→ **nghỉ 30 giây** để reset não, uống ngụm nước, hít thở.\n\n🎯 Mục đích:\n- Tái tạo năng lượng và sự tập trung\n- Nhắc bản thân những điểm cần chú ý\n- Xác định chiến lược: bài nào làm trước, bài nào làm sau\n\n---\n\n## ⚠️ MẸO CHỌN ĐÁP ÁN\n\n- ❌ Đáp án nào bạn thấy *“giống y ý mình”* → thường là bẫy\n- ❌ Đáp án *trích nguyên câu từ bài đọc* → thường sai\n- ✅ Đáp án *dùng từ đồng nghĩa, diễn đạt lại* → thường đúng\n\n---\n\n## 📚 CHIẾN LƯỢC THEO TỪNG DẠNG BÀI\n\n### 🔸 Dạng AB – So sánh 2 đoạn\n\n- Đọc 2 câu hỏi trước → xác định cần tìm gì ở A & B\n- Đọc A → tóm 2 ý  \n  Đọc B → tóm 2 ý  \n→ So với đáp án\n\n### 🔸 Dạng thống kê – tìm thông tin (TKTT)\n\n- Áp dụng quy tắc **4-3**:\n  - 4 phút: đọc bài → khoanh vùng ai, làm gì, thời gian, địa điểm, tiền...\n  - 3 phút: đọc kỹ câu hỏi → làm bài\n- Gạch từ khóa trong bảng và bài đọc\n\n### 🔸 Dạng đoạn văn ngắn & viết mail\n\n- Nội dung chính thường nằm giữa mail, sau lời chào\n- Nếu câu hỏi có **最も** → bỏ qua các cụm như *また、なお*\n- Nếu hỏi “nên làm gì” → chú ý phần sau *また、なお*\n\n### 🔸 Dạng đoạn / trung / trường văn\n\n- Áp dụng quy tắc **15s** để chọn bài dễ làm trước\n- Tách bài thành các đoạn nhỏ tương ứng với mỗi câu hỏi\n- Mỗi đoạn → 1 câu hỏi → làm từng đoạn theo câu hỏi tương ứng\n\n**Thứ tự làm bài:**\n1. Đọc câu hỏi 1 → xác định đoạn chứa đáp án → đọc đến khi có đáp án → dừng\n2. Đọc câu hỏi 2 → đọc đoạn tiếp theo...\n3. Đoạn cuối → thường chứa đáp án cho câu cuối\n\n---\n\n## 🧭 CÁC LOẠI CÂU HỎI & MẸO\n\n### 🔹 Gạch chân chỉ thị từ (これ、それ、こんな、そんな...)\n\n- 「それ、そんな、そう」→ Đáp án nằm **phía trước 1–2 câu**\n- 「これ、こんな、こう」→ Trước hoặc sau, tùy文脈\n\n### 🔹 Gạch chân thường\n\n- Dựa vào **liên từ** trong bài để xác định cần đọc trước/sau\n\n### 🔹 Hành động nên/cần làm\n\n- Từ khóa: *大切, べき, ~た方がいい, 必要, ~ことだ...*\n\n### 🔹 Lý do\n\n- Từ chỉ nguyên nhân: *から, ので, それで, そのため, 結果...*\n\n### 🔹 Nội dung bài\n\n- Dựa từ khóa trong câu hỏi → tìm trong bài\n\n### 🔹 Ý kiến tác giả\n\n- Từ khóa: *しかし, つまり, それで,...*  \n- Tìm biểu hiện như *と思う, ではないか...*  \n- Câu cuối bài thường chứa đáp án!\n\n---\n\n## 📌 3 BƯỚC LÀM BÀI ĐỌC HIỂU\n\n1. **Đọc câu hỏi** → xác định dạng và từ khóa\n2. **Lướt đọc bài** → khoanh đáp án theo thứ tự\n3. **So sánh với đáp án** → loại trừ và chọn\n\n> Ở phần hình ảnh mình có đính kèm ví dụ minh hoạ từng dạng – bạn có thể xem để hiểu rõ hơn!\n\n---\n\n## 🎯 TỔNG KẾT\n\n> Đọc hiểu JLPT **không phải là “cuộc đua đọc nhanh”**, mà là **“cuộc chơi chiến lược”**.\n\n- ✅ Hãy đọc có mục tiêu\n- ✅ Chọn bài phù hợp với bạn\n- ✅ Luôn tỉnh táo trước đáp án nghe có vẻ "quá đúng"\n\n---\n\nBạn có mẹo nào hay hơn nữa?  \n💬 **Bình luận chia sẻ** với mình nhé!  \nChúc các bạn ôn thi hiệu quả và đỗ JLPT! 🇯🇵💪✨	2025-07-12 23:56:15.661625+07	2025-07-13 00:00:44.250475+07	8	PB
+38	Test Draft	draftttttttttt	2025-07-13 00:10:12.363356+07	2025-07-13 00:10:12.363377+07	8	DR
 21	Hii	my friendddd	2025-07-10 21:35:48.836327+07	2025-07-10 21:46:27.714214+07	4	PB
 19	hello	hiiiiiiii\n\nmoi nguoi khoe khong	2025-07-10 20:53:40.391885+07	2025-07-10 22:08:52.189073+07	4	PB
 25	Đề N2 T12-2021 Mark - N2 test in December, 2021	Mức độ N2\nNhận xét: Đề nghe khá khó	2025-07-10 22:09:19.58488+07	2025-07-10 22:19:00.376788+07	4	PB
@@ -1038,6 +1055,7 @@ COPY public.posts_post_tags (id, post_id, tag_id) FROM stdin;
 19	12	5
 25	19	9
 27	32	7
+28	36	11
 \.
 
 
@@ -1058,6 +1076,7 @@ COPY public.posts_tag (id, name) FROM stdin;
 8	be
 9	beginner
 10	a
+11	JLPT
 \.
 
 
@@ -1129,6 +1148,18 @@ COPY public.token_blacklist_blacklistedtoken (id, blacklisted_at, token_id) FROM
 19	2025-07-11 14:56:06.254811+07	35
 20	2025-07-11 15:22:00.420212+07	36
 21	2025-07-11 15:37:46.461874+07	37
+22	2025-07-12 22:01:15.78224+07	38
+23	2025-07-12 22:01:44.661014+07	39
+24	2025-07-12 22:35:12.687138+07	40
+25	2025-07-12 22:40:30.314958+07	43
+26	2025-07-12 23:22:52.600183+07	47
+27	2025-07-12 23:23:09.314314+07	48
+28	2025-07-12 23:27:14.164008+07	49
+29	2025-07-12 23:30:42.65395+07	50
+30	2025-07-12 23:31:05.387445+07	51
+31	2025-07-12 23:46:06.634442+07	52
+32	2025-07-13 00:07:53.261949+07	53
+33	2025-07-13 00:09:47.520099+07	54
 \.
 
 
@@ -1176,6 +1207,24 @@ COPY public.token_blacklist_outstandingtoken (id, token, created_at, expires_at,
 35	eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc1Mjc3MDA1MywiaWF0IjoxNzUyMTY1MjUzLCJqdGkiOiI4ZTAyNzU2NTA1ZGE0MzJhOWJjZjFjYWM2ZDU3Nzg2NCIsInVzZXJfaWQiOjF9.ZF8Xrvu_F43wiSQ7yXRXzTNoknlnrEBJ3x7-pW-C6hM	2025-07-10 23:34:13.972614+07	2025-07-17 23:34:13+07	1	8e02756505da432a9bcf1cac6d577864
 36	eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc1MjgyNTM3OCwiaWF0IjoxNzUyMjIwNTc4LCJqdGkiOiI2YzE1ZjBlNzE5ZjU0NzJlYjA0MjQ4MzFlYWVhMWY2NyIsInVzZXJfaWQiOjR9.g_quO9WWWmAHLdZhO07r7koYT6FAMChkjRE7akw5-4M	2025-07-11 14:56:18.506654+07	2025-07-18 14:56:18+07	4	6c15f0e719f5472eb0424831eaea1f67
 37	eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc1MjgyNzA0NCwiaWF0IjoxNzUyMjIyMjQ0LCJqdGkiOiI3YTZjMGRiMmE4NzU0ZTkyOGM5ZjVmMzBlMmQ3YjYxMiIsInVzZXJfaWQiOjV9.iTl3e0WuGJP-Mazh27NKxavuL33CjDuZJkfZo1zzwnU	2025-07-11 15:24:04.432105+07	2025-07-18 15:24:04+07	5	7a6c0db2a8754e928c9f5f30e2d7b612
+38	eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc1MjkzNzI3MywiaWF0IjoxNzUyMzMyNDczLCJqdGkiOiI3Nzk4NGFkNWY3ODc0ODkxYmE1MzY1YWViZDI1MDM2OCIsInVzZXJfaWQiOjZ9.6JdU5MyrKaKySuCiOeq3-hRLGyofdK5mmMsExepiAXw	2025-07-12 22:01:13.471751+07	2025-07-19 22:01:13+07	6	77984ad5f7874891ba5365aebd250368
+39	eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc1MjkzNzI5MiwiaWF0IjoxNzUyMzMyNDkyLCJqdGkiOiJkZmQ3OTdhMmQyOGY0ZDUyYTgyMzZkN2QxNjBhZWZjNyIsInVzZXJfaWQiOjZ9.J_inUgcz3XX6n0PRUrGA2QcwYH7867XpGY6uYYiA6A0	2025-07-12 22:01:32.926269+07	2025-07-19 22:01:32+07	6	dfd797a2d28f4d52a8236d7d160aefc7
+40	eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc1MjkzOTMwNiwiaWF0IjoxNzUyMzM0NTA2LCJqdGkiOiIyZmI2YzFkNTU3YWU0NjYwODZlYmVlNDMxYzVhNTZmMSIsInVzZXJfaWQiOjZ9.KM9I2IuvuaN2nYLIYBWUz68V21FWWvBg2lQpDk8GArs	2025-07-12 22:35:06.23402+07	2025-07-19 22:35:06+07	6	2fb6c1d557ae466086ebee431c5a56f1
+41	eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc1MjkzOTQ0MywiaWF0IjoxNzUyMzM0NjQzLCJqdGkiOiI5ZmVkOTc4NjVlZDM0ZmI0YWM1YzMyNWY5ZGExZTc3YyIsInVzZXJfaWQiOjZ9.4eABAMvMRlEQyYIagGqWHSEuxfBEotFqhCuhKltWDsQ	2025-07-12 22:37:23.531786+07	2025-07-19 22:37:23+07	6	9fed97865ed34fb4ac5c325f9da1e77c
+42	eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc1MjkzOTU1OCwiaWF0IjoxNzUyMzM0NzU4LCJqdGkiOiI4YWMwNWU2NTAxODc0MzE3OTkzNTE2YjE2ODFiYTMzNCIsInVzZXJfaWQiOjZ9.MCOB4AtfEd2TmrTn4q4xBLyXKFkoafREvSKb-ro8CDg	2025-07-12 22:39:18.074209+07	2025-07-19 22:39:18+07	6	8ac05e6501874317993516b1681ba334
+43	eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc1MjkzOTYyOCwiaWF0IjoxNzUyMzM0ODI4LCJqdGkiOiJiMTczMDBmZjU4ZjA0YTE1OTQ4MGU0NWU2YjY4ZDQ4YyIsInVzZXJfaWQiOjd9.NoRBxeEwl1z5Y1SxdIP-k_YtFtYAsAYcp-4JyRYMUDw	2025-07-12 22:40:28.318383+07	2025-07-19 22:40:28+07	7	b17300ff58f04a159480e45e6b68d48c
+44	eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc1Mjk0MDA0MywiaWF0IjoxNzUyMzM1MjQzLCJqdGkiOiJkMWFhMDlhMDhkMjM0OTVlODk4MmVjODcyODU1Y2QwNCIsInVzZXJfaWQiOjZ9.xxdFkhetJFOtJJi2-7I6xdX0ZAauGeP4NM9FRmd1aXc	2025-07-12 22:47:23.078178+07	2025-07-19 22:47:23+07	6	d1aa09a08d23495e8982ec872855cd04
+45	eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc1Mjk0MDMyNCwiaWF0IjoxNzUyMzM1NTI0LCJqdGkiOiJlMDA2YzhmMzE4ODk0NDFmYmRhZGY0MzUyYzMwOTk4OSIsInVzZXJfaWQiOjZ9.SeEXy2TDdfwKNZkAxiVyZLa369l_nxaOEsM9lAMYluQ	2025-07-12 22:52:04.029527+07	2025-07-19 22:52:04+07	6	e006c8f31889441fbdadf4352c309989
+46	eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc1Mjk0MTM5OSwiaWF0IjoxNzUyMzM2NTk5LCJqdGkiOiJhZTFhNWYwNTNhYjU0MDE2OWYzMGRlYTRjNWVjZWZlYSIsInVzZXJfaWQiOjZ9.D5C3_eObk7ZHPxGjzd-UXvP7do0bD4RDRvOrNYRrQ_c	2025-07-12 23:09:59.218128+07	2025-07-19 23:09:59+07	6	ae1a5f053ab540169f30dea4c5ecefea
+47	eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc1Mjk0MTQxMiwiaWF0IjoxNzUyMzM2NjEyLCJqdGkiOiJkZmNiNTQ1Njk3MjA0ZDJhYTUyNTNkYzdlOWJkNDM0ZCIsInVzZXJfaWQiOjd9.giPpKZ_U-c75oRM92G5t0XB-FAGrtVozcCmZOl8GC5Q	2025-07-12 23:10:12.225765+07	2025-07-19 23:10:12+07	7	dfcb545697204d2aa5253dc7e9bd434d
+48	eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc1Mjk0MjE4NSwiaWF0IjoxNzUyMzM3Mzg1LCJqdGkiOiIxMzkwNzk5MjliOWM0NGM0OTIxODY4NTMxNTAxODRlYyIsInVzZXJfaWQiOjZ9.4FxwQyMRqbVmsfXVNSwXa4XKmIIxfWCcn8xq0_dnenQ	2025-07-12 23:23:05.669898+07	2025-07-19 23:23:05+07	6	139079929b9c44c492186853150184ec
+49	eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc1Mjk0MjI3MiwiaWF0IjoxNzUyMzM3NDcyLCJqdGkiOiIzNTQwMDk3YTRkNDE0YmJjYTUzMTBkZGNmNjEzNTQ5YSIsInVzZXJfaWQiOjZ9.D83Xp38VyYx1rWL1qzlP09Z0-noqSFtrkI4BCA4GD7E	2025-07-12 23:24:32.832102+07	2025-07-19 23:24:32+07	6	3540097a4d414bbca5310ddcf613549a
+50	eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc1Mjk0MjQ0NiwiaWF0IjoxNzUyMzM3NjQ2LCJqdGkiOiIxM2ViNTRlNDNjNzg0ZTNhOTdmNGY4ZjllOWZjMjU1NiIsInVzZXJfaWQiOjZ9.JF0rt4LqBDBhHYu_rvokt54WqLWxWPtCmU5VWI-3jnE	2025-07-12 23:27:26.284699+07	2025-07-19 23:27:26+07	6	13eb54e43c784e3a97f4f8f9e9fc2556
+51	eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc1Mjk0MjY2MiwiaWF0IjoxNzUyMzM3ODYyLCJqdGkiOiJkYWQ5OGVjNjc0OWY0N2RkYTZjYjEyYjA4ZGZjMjZiYyIsInVzZXJfaWQiOjZ9.kJpp4hRReJeTR-qLTx493d1rtao4fwWMg4O2i4bwG_g	2025-07-12 23:31:02.072375+07	2025-07-19 23:31:02+07	6	dad98ec6749f47dda6cb12b08dfc26bc
+52	eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc1Mjk0MzU2MCwiaWF0IjoxNzUyMzM4NzYwLCJqdGkiOiIzMmZiODkzMzgyNTk0ZmEwYjU0NTM2NzFmMmY3YzFhYSIsInVzZXJfaWQiOjh9.iJJcjEbbixczslAjJJsED96ehnnWimK4_hxQFxC8prM	2025-07-12 23:46:00.711624+07	2025-07-19 23:46:00+07	8	32fb893382594fa0b5453671f2f7c1aa
+53	eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc1Mjk0MzY4NCwiaWF0IjoxNzUyMzM4ODg0LCJqdGkiOiIxNjM0NjcwMjJlODY0ZjVlYjg1ZmJmY2Q5OGU1NDlkZSIsInVzZXJfaWQiOjh9.HS22TiWrrv5wYGl2zbB3gfGhJc6asA7zYuEkgtZTItc	2025-07-12 23:48:04.00232+07	2025-07-19 23:48:04+07	8	163467022e864f5eb85fbfcd98e549de
+54	eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc1Mjk0NDg4OSwiaWF0IjoxNzUyMzQwMDg5LCJqdGkiOiJlOTI5NzYxZTQzMmU0ZWY0OGJhZmNjYzYzMjBkYmRkMyIsInVzZXJfaWQiOjF9.XTC8s0VRjsjrpbbLYaRB61-UZ3OLp57RamXYMWStgtU	2025-07-13 00:08:09.334532+07	2025-07-20 00:08:09+07	1	e929761e432e4ef48bafccc6320dbdd3
+55	eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc1Mjk0NDk5OCwiaWF0IjoxNzUyMzQwMTk4LCJqdGkiOiIxZTIwN2QwN2IzNGM0ZTkxODIxYTMyN2MxMzBmYTFiNSIsInVzZXJfaWQiOjh9.lCSTXVe0KQCVq5lzwv2q-lpkHNm0Vrdnj8N_lmqSYsg	2025-07-13 00:09:58.158936+07	2025-07-20 00:09:58+07	8	1e207d07b34c4e91821a327c130fa1b5
 \.
 
 
@@ -1191,6 +1240,9 @@ COPY public.users_user (id, password, last_login, is_superuser, first_name, last
 3	pbkdf2_sha256$1000000$zIz66tcgSvUOIgJw326DQb$m41Xz2QaJ1KaWi/NRHW+o0uPGRNenc18JmcWWsXdK2U=	2025-07-05 20:47:36.001789+07	f			f	t	2025-07-05 20:47:35.323679+07	test4	test4@example.com		
 4	pbkdf2_sha256$1000000$wprzCjXqoNiGjKrHYo1Gni$Cj9T4qzI/kgTUn9l1jF4eMWjZUoO7Ha7xTFHMM6OElc=	2025-07-09 23:14:56.072961+07	f			f	t	2025-07-09 23:14:55.362514+07	MinhLee	minh@example.com	hello mannn	
 5	pbkdf2_sha256$1000000$Z3fcpVjkUh9STjmFzfbyNH$/n4xds9FConO6Z7EaJ9foCtU2ckKcKCMnAxYIKCMkpw=	2025-07-11 15:24:04.487937+07	f			f	t	2025-07-11 15:24:03.790643+07	namiya	namiya@example.com	hello i from japan	
+6	pbkdf2_sha256$1000000$RU6SyVfFbibKgsF8S5CLI6$wtfELIoA2Jij3RX/K6KlBmRbDX69w8ube7W0yixPpg0=	2025-07-12 22:01:13.857819+07	f			f	t	2025-07-12 22:01:12.80704+07	long123	long123@gmail.com		
+7	pbkdf2_sha256$1000000$FpHg1ksU8WQlSmaUxy85Nd$udMgiYbt1KwlSBad/x0m91WGo2Ub9TfrttY47g9tL/w=	2025-07-12 22:40:28.338552+07	f			f	t	2025-07-12 22:40:27.960319+07	theanh123	theanh123@gmail.com		
+8	pbkdf2_sha256$1000000$fa3IJLXbYcxVFXL9gw8Ioe$sncLq8Tjpn31fUmf/Mg93nZ5pxMYNqHGIpyvX9IUAqE=	2025-07-12 23:46:00.766465+07	f			f	t	2025-07-12 23:46:00.144508+07	test	test@example.com	My name is ...	
 \.
 
 
@@ -1220,7 +1272,7 @@ COPY public.users_user_user_permissions (id, user_id, permission_id) FROM stdin;
 -- Name: account_emailaddress_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.account_emailaddress_id_seq', 5, true);
+SELECT pg_catalog.setval('public.account_emailaddress_id_seq', 8, true);
 
 
 --
@@ -1265,7 +1317,7 @@ SELECT pg_catalog.setval('public.auth_permission_id_seq', 68, true);
 -- Name: comments_comment_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.comments_comment_id_seq', 11, true);
+SELECT pg_catalog.setval('public.comments_comment_id_seq', 18, true);
 
 
 --
@@ -1310,7 +1362,7 @@ SELECT pg_catalog.setval('public.django_site_id_seq', 1, true);
 -- Name: posts_post_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.posts_post_id_seq', 33, true);
+SELECT pg_catalog.setval('public.posts_post_id_seq', 38, true);
 
 
 --
@@ -1319,7 +1371,7 @@ SELECT pg_catalog.setval('public.posts_post_id_seq', 33, true);
 -- Name: posts_post_tags_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.posts_post_tags_id_seq', 27, true);
+SELECT pg_catalog.setval('public.posts_post_tags_id_seq', 28, true);
 
 
 --
@@ -1328,7 +1380,7 @@ SELECT pg_catalog.setval('public.posts_post_tags_id_seq', 27, true);
 -- Name: posts_tag_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.posts_tag_id_seq', 10, true);
+SELECT pg_catalog.setval('public.posts_tag_id_seq', 11, true);
 
 
 --
@@ -1373,7 +1425,7 @@ SELECT pg_catalog.setval('public.socialaccount_socialtoken_id_seq', 1, false);
 -- Name: token_blacklist_blacklistedtoken_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.token_blacklist_blacklistedtoken_id_seq', 21, true);
+SELECT pg_catalog.setval('public.token_blacklist_blacklistedtoken_id_seq', 33, true);
 
 
 --
@@ -1382,7 +1434,7 @@ SELECT pg_catalog.setval('public.token_blacklist_blacklistedtoken_id_seq', 21, t
 -- Name: token_blacklist_outstandingtoken_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.token_blacklist_outstandingtoken_id_seq', 37, true);
+SELECT pg_catalog.setval('public.token_blacklist_outstandingtoken_id_seq', 55, true);
 
 
 --
@@ -1400,7 +1452,7 @@ SELECT pg_catalog.setval('public.users_user_groups_id_seq', 1, false);
 -- Name: users_user_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.users_user_id_seq', 5, true);
+SELECT pg_catalog.setval('public.users_user_id_seq', 8, true);
 
 
 --
@@ -2285,7 +2337,7 @@ ALTER TABLE ONLY public.users_user_user_permissions
     ADD CONSTRAINT users_user_user_permissions_user_id_20aca447_fk_users_user_id FOREIGN KEY (user_id) REFERENCES public.users_user(id) DEFERRABLE INITIALLY DEFERRED;
 
 
--- Completed on 2025-07-12 01:21:55
+-- Completed on 2025-07-13 01:22:03
 
 --
 -- PostgreSQL database dump complete
