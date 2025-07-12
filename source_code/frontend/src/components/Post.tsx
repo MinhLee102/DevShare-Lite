@@ -1,3 +1,5 @@
+'use client'
+
 import Link from "next/link";
 import Picture from "./Picture";
 import ReactMarkdown from 'react-markdown';
@@ -10,19 +12,23 @@ interface PostProps {
 const Post = ({post}: PostProps) => {
 
     return (
-        <Link href={`/posts/${post.id}`} className="block bg-white p-6 border-2 border-[#00C7B6] rounded-3xl shadow-lg hover:shadow-xl transition-shadow cursor-pointer">
-            <h2 className="text-xl font-bold text-black mb-2"> {post.title} </h2>
+        <div className="group relative block bg-white p-6 border-2 border-[#00C7B6] rounded-3xl shadow-lg hover:shadow-xl transition-shadow">
+            <h2 className="text-xl font-bold text-black mb-2 group-hover:text-[#00C7B6] transition-colors">
+                {post.title}
+            </h2>
             
-            <div className="text-[#AD8989] mb-4 line-clamp-6"> 
+            <div className="text-[#AD8989] mb-4 line-clamp-6 z-10 relative"> 
                 <ReactMarkdown
                     components={{
-                        // eslint-disable-next-line @typescript-eslint/no-unused-vars
-                        a: ({node, ...props}) => {
-                            const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-                                e.stopPropagation(); 
-                            };
-                            
-                            return <a onClick={handleClick} {...props} className="text-blue-600 hover:underline" />;
+                        a: ({ ...props }) => {
+                            return (
+                                <a 
+                                    target="_blank" 
+                                    rel="noopener noreferrer"
+                                    {...props} 
+                                    className="text-blue-600 hover:underline" 
+                                />
+                            );
                         }
                     }}
                 >
@@ -41,8 +47,12 @@ const Post = ({post}: PostProps) => {
                 </div>
                 <span className="font-semibold text-[#AD8989]">{post.author.username}</span>
             </div>
-        </Link>
+
+            <Link href={`/posts/${post.id}`} className="absolute inset-0 z-0" aria-label={`View post: ${post.title}`}></Link>
+        </div>
     );
 };
 
  export default Post;
+
+ 
