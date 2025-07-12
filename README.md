@@ -1,9 +1,16 @@
+## 🧑‍🎓 Basic Information
 - **University:** University of Engineering and Technology, VNU
 - **Name:** Lê Đức Minh
 - **Student ID:** 23020683
 
 ---
+> This README only provides project overview, tech stack, directory structure and installation & setup on local computer. 
 
+> For **Database design**, access: [Database Design](DATABASE_DESIGN.md)
+
+> For details on **web's features**, access: [Features](FEATURES.md)
+
+---
 ## Project Overview
 
 DevShare Lite is a web application designed as a social platform for developers. It allows users to share IT knowledge with each other, through posting articles in markdown or through discussions with a comment system. Inspired by others similar social web like Reddits, Stack Overflow, … DevShare Lite also features ‘infinite scroll’, providing users with a better experience. Search engines are also incorporated, helping users in finding posts with the desired theme.
