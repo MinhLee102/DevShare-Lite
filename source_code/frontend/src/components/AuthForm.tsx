@@ -33,7 +33,6 @@ const AuthForm = ({type, title, fields, buttonText, footerContent }: AuthFormPro
     initialState[field.name] = '';
   }
 
-
   const [formData, setFormData] = useState(initialState);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
@@ -51,6 +50,29 @@ const AuthForm = ({type, title, fields, buttonText, footerContent }: AuthFormPro
     setLoading(true);
     setError(null);
 
+    let submissionData: Record<string, string>;
+
+    if (type === 'login') {
+
+      const loginIdentifier = formData.username; 
+
+      if (loginIdentifier && loginIdentifier.includes('@')) {
+        submissionData = {
+          email: loginIdentifier,
+          password: formData.password,
+        };
+      } else {
+        submissionData = {
+          username: loginIdentifier,
+          password: formData.password,
+        };
+      }
+    } else {
+      submissionData = formData;
+    }
+
+    console.log('[SUBMITTING DATA]', submissionData)
+
     try{
       const apiField = {
         login: loginUser,
@@ -58,7 +80,7 @@ const AuthForm = ({type, title, fields, buttonText, footerContent }: AuthFormPro
       };
 
       const apiRequest = apiField[type];
-      const responce = await apiRequest(formData);
+      const responce = await apiRequest(submissionData);
 
       console.log('resquest successful', responce.data)
       login(responce.data);
