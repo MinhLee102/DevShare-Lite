@@ -4,6 +4,12 @@ import NewsFeed from '@/components/NewsFeed';
 import { getPosts } from '@/utils/api/post';
 import { PostType } from '@/types';
 
+
+/**
+ * A utility function to sanitize post data received from the API,
+ * ensuring it conforms to the PostType interface and handles potential
+ * null or undefined values gracefully before being passed to a Client Component.
+ */
 const sanitizePost = (post: unknown): PostType => {
  const rawData = post as {
     id: number;
@@ -46,6 +52,7 @@ export default async function Homepage() {
     const initialData = await getPosts(1);
     
     if (initialData && Array.isArray(initialData.results)) {
+      // Sanitize each post and filter out any invalid entries.
       initialPosts = initialData.results.map(sanitizePost);
     }
 
@@ -67,6 +74,9 @@ export default async function Homepage() {
           <SearchBar />
         </div>
           <div className="mt-2">
+            {/* The initial data is passed down to the NewsFeed Client Component, 
+                which will handle subsequent infinite scrolling interactions. */}
+                
             <NewsFeed initialPosts={initialPosts} nextPage={nextPage} />
           </div>
       </main>
