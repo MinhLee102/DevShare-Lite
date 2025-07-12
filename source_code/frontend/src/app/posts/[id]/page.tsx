@@ -16,12 +16,15 @@ interface PostDetailsProps {
 
 export default async function PostDetails({params}: PostDetailsProps) {
     const {id} = params;
+
+    // Fetch post data and comments in parallel to reduce waterfalls.
      const [post, comments] = await Promise.all([
         getPostById(id),
         getCommentsForPost(id)
     ]);
     
 
+    // If the post doesn't exist, render a 404 page.
     if (!post)
         notFound();
 
@@ -38,6 +41,8 @@ export default async function PostDetails({params}: PostDetailsProps) {
          
           <div className="flex justify-between items-start mb-6 gap-4">
             <h1 className="text-3xl font-bold text-black mb-4">{post.title}</h1>
+
+            {/* PostActions handles user-specific actions. */}
             <PostActions post={post} />
           </div>
 

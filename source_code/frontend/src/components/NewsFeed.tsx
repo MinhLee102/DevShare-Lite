@@ -18,6 +18,9 @@ export default function NewsFeed({ initialPosts, nextPage }: NewsFeedProps) {
   
     const observer = useRef<IntersectionObserver | null>(null);
 
+    /**
+     * Fetches the next page of posts from the API and appends them to the current list.
+     */
     const loadMorePosts = useCallback(async () => {
         if (!page) 
             return; 
@@ -27,6 +30,7 @@ export default function NewsFeed({ initialPosts, nextPage }: NewsFeedProps) {
 
         setPosts(prevPosts => [...prevPosts, ...data.results]);
     
+        // Updates the 'page' state by parsing the 'next' URL from the API response.
         if (data.next) {
             const nextUrl = new URL(data.next);
             const nextPage = nextUrl.searchParams.get('page');
@@ -35,25 +39,31 @@ export default function NewsFeed({ initialPosts, nextPage }: NewsFeedProps) {
             setPage(null); 
         }
         setLoading(false);
-  }, [page]);
+     }, [page]);
 
-  const lastPostElementRef = useCallback(
-    (node: HTMLDivElement) => {
-      if (loading) 
-        return;
-      if (observer.current) 
-        observer.current.disconnect();
-      
-      observer.current = new IntersectionObserver(entries => {
-        if (entries[0].isIntersecting && page !== null) {
-          loadMorePosts();
-        }
-      });
-      
-      if (node) observer.current.observe(node);
-    },
-    [loading, page, loadMorePosts]
-  );
+
+    /**
+     * A callback ref attached to the last post in the list.
+     * It uses the IntersectionObserver API to detect when the user has scrolled
+     * to the bottom of the feed, triggering `loadMorePosts`.
+     */
+    const lastPostElementRef = useCallback(
+      (node: HTMLDivElement) => {
+        if (loading) 
+          return;
+        if (observer.current) 
+          observer.current.disconnect();
+        
+        observer.current = new IntersectionObserver(entries => {
+          if (entries[0].isIntersecting && page !== null) {
+            loadMorePosts();
+          }
+        });
+        
+        if (node) observer.current.observe(node);
+      },
+      [loading, page, loadMorePosts]
+    );
 
   return (
     <div className="space-y-6">

@@ -52,8 +52,11 @@ const AuthForm = ({type, title, fields, buttonText, footerContent }: AuthFormPro
 
     let submissionData: Record<string, string>;
 
+    // This logic allows users to log in with either their username or email
+    // by checking for the '@' symbol and constructing the correct payload.
     if (type === 'login') {
 
+      // Assumes the primary input field is named 'username'
       const loginIdentifier = formData.username; 
 
       if (loginIdentifier && loginIdentifier.includes('@')) {
@@ -70,8 +73,6 @@ const AuthForm = ({type, title, fields, buttonText, footerContent }: AuthFormPro
     } else {
       submissionData = formData;
     }
-
-    console.log('[SUBMITTING DATA]', submissionData)
 
     try{
       const apiField = {

@@ -15,7 +15,9 @@ export default function CommentBox({ comment, onReply }: CommentBoxProps) {
         return null;
     }
 
+    // This ensures the component doesn't crash if `comment.author` is null or undefined
     const author = comment.commenter || defaultAuthor; 
+
   return (
     <div className="flex flex-col">
         <div className="flex items-start gap-4">
@@ -31,7 +33,7 @@ export default function CommentBox({ comment, onReply }: CommentBoxProps) {
             </button>
         </div>
         
-{comment.replies && comment.replies.length > 0 && (
+            {comment.replies && comment.replies.length > 0 && (
                 <div className="ml-12 mt-4 space-y-4">
                     {comment.replies.map((reply: Reply) => {
                         if (!reply) return null;

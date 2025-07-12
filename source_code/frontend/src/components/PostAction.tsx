@@ -19,15 +19,20 @@ const PostActions = ({ post }: PostActionsProps) => {
   const [isDeleting, setIsDeleting] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-
+  // This check prevents rendering before the user's auth state is confirmed.
   if (loading) {
     return <div className="h-10 w-40 bg-gray-200 rounded-lg animate-pulse"></div>;
   }
 
+  // Determine if the current user is the author of the post.
   const isAuthor = user && user.id === post.author.id;
 
 
+  /**
+   * Handles the post deletion, including a confirmation dialog.
+   */
   const handleDelete = async () => {
+    // A simple browser confirm to prevent accidental deletion.
     const confirmed = window.confirm('Are you sure you want to delete this post? This action cannot be undone.');
 
     if (!confirmed) {
@@ -49,6 +54,7 @@ const PostActions = ({ post }: PostActionsProps) => {
     }
   };
 
+  // Do not render anything if the user is not the author.
   if (!isAuthor) {
     return null;
   }

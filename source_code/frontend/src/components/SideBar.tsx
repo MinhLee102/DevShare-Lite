@@ -18,6 +18,7 @@ const SideBar = () => {
                             </Link>
                         </li>
 
+                        {/* Conditionally render these links only if a user is logged in. */}
                         {user && (
                          <li>
                             <Link href="/posts/create"className="flex items-center space-x-4 text-lg font-semibold text-black hover:bg-gray-100 p-3 rounded-lg transition-colors">
