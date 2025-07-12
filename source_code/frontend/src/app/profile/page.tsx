@@ -6,7 +6,6 @@ import { PostType, UserProfile } from '@/types';
 import Post from '@/components/Post';
 import SideBar from '@/components/SideBar';
 import Picture from '@/components/Picture';
-import Link from 'next/link';
 import Button from '@/components/Button';
 
 
@@ -88,9 +87,11 @@ export default function ProfilePage() {
                         <h2 className="text-2xl font-bold mb-4">My Drafts</h2>
                         <div className="space-y-6">
                             {drafts.map((post: PostType) => (
-                               <Link key={post.id} href={`/posts/edit/${post.id}`}>
-                                    <Post post={post} />
-                               </Link>
+                               <Post 
+                                   key={post.id} 
+                                   post={post} 
+                                   href={`/posts/edit/${post.id}`} 
+                                />
                             ))}
                         </div>
                     </div>
