@@ -3,6 +3,8 @@ from .models import Comment
 from users.serializers import CustomUserDetailsSerializer 
 
 class ReplySerializer(serializers.ModelSerializer):
+    """Serializer for nested replies (level 2 comments)."""
+
     commenter = CustomUserDetailsSerializer(read_only=True)
 
     class Meta:
@@ -11,8 +13,9 @@ class ReplySerializer(serializers.ModelSerializer):
 
 
 class CommentSerializer(serializers.ModelSerializer):
-    commenter = CustomUserDetailsSerializer(read_only=True)
+    """Serializer for top-level comments, including their nested replies."""
 
+    commenter = CustomUserDetailsSerializer(read_only=True)
     replies = ReplySerializer(many=True, read_only=True)
 
     class Meta:
