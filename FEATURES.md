@@ -114,6 +114,7 @@ A personal space for users to manage their information and content.
 
 ## 🚦 Known Limitations
 
+-   The application currently does not provide function to **reset password** (Forgot Password). Will be added in the future.
 -   The application does not currently feature real-time updates (e.g., new comments appearing without a refresh). It relies on `router.refresh()` for data synchronization.
 -   The commenting system is limited to two levels of nesting to maintain UI simplicity.
 -   The autosave function is not available. Replaced by a simplified solution: using the "Save Draft" button to ensure robust and predictable behavior.
